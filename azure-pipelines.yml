@@ -8,7 +8,11 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-
+- task: IISWebAppDeploymentOnMachineGroup@0
+  inputs:
+    WebSiteName: 'ummed'
+    VirtualApplication: 'ummed-v1'
+    Package: '$(System.DefaultWorkingDirectory)\**\*.zip'
 steps:
 - task: NodeTool@0
   inputs:
